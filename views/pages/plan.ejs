@@ -1,0 +1,212 @@
+<!-- Page Header -->
+<section class="py-16 bg-secondary">
+    <div class="container">
+        <div class="text-center">
+            <h1>Plan Your Perfect Trip</h1>
+            <p>Tell us about your dream destination and we'll create the perfect itinerary</p>
+        </div>
+    </div>
+</section>
+
+<!-- Trip Planning Form -->
+<section class="py-20">
+    <div class="container">
+        <div class="max-w-4xl mx-auto">
+            <form class="card p-8" data-validate>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Basic Information -->
+                    <div>
+                        <h3 class="mb-6">Trip Details</h3>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Destination *</label>
+                            <input type="text" class="form-input" placeholder="Where do you want to go?" required>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="form-group">
+                                <label class="form-label">Departure Date *</label>
+                                <input type="date" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Return Date *</label>
+                                <input type="date" class="form-input" required>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="form-group">
+                                <label class="form-label">Adults</label>
+                                <select class="form-select">
+                                    <option value="1">1 Adult</option>
+                                    <option value="2">2 Adults</option>
+                                    <option value="3">3 Adults</option>
+                                    <option value="4">4+ Adults</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Children</label>
+                                <select class="form-select">
+                                    <option value="0">No Children</option>
+                                    <option value="1">1 Child</option>
+                                    <option value="2">2 Children</option>
+                                    <option value="3">3+ Children</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Budget Range</label>
+                            <select class="form-select">
+                                <option value="">Select Budget</option>
+                                <option value="500">Under $500</option>
+                                <option value="1000">$500 - $1,000</option>
+                                <option value="2000">$1,000 - $2,000</option>
+                                <option value="5000">$2,000 - $5,000</option>
+                                <option value="10000">$5,000+</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Preferences -->
+                    <div>
+                        <h3 class="mb-6">Your Preferences</h3>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Travel Style</label>
+                            <div class="grid grid-cols-2 gap-2">
+                                <label class="flex items-center gap-2">
+                                    <input type="checkbox" name="style" value="adventure">
+                                    <span>🏔️ Adventure</span>
+                                </label>
+                                <label class="flex items-center gap-2">
+                                    <input type="checkbox" name="style" value="relaxation">
+                                    <span>🏖️ Relaxation</span>
+                                </label>
+                                <label class="flex items-center gap-2">
+                                    <input type="checkbox" name="style" value="culture">
+                                    <span>🏛️ Culture</span>
+                                </label>
+                                <label class="flex items-center gap-2">
+                                    <input type="checkbox" name="style" value="nightlife">
+                                    <span>🌃 Nightlife</span>
+                                </label>
+                                <label class="flex items-center gap-2">
+                                    <input type="checkbox" name="style" value="food">
+                                    <span>🍽️ Food & Drink</span>
+                                </label>
+                                <label class="flex items-center gap-2">
+                                    <input type="checkbox" name="style" value="shopping">
+                                    <span>🛍️ Shopping</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Accommodation Type</label>
+                            <select class="form-select">
+                                <option value="">Any Type</option>
+                                <option value="hotel">Hotel</option>
+                                <option value="resort">Resort</option>
+                                <option value="airbnb">Airbnb</option>
+                                <option value="hostel">Hostel</option>
+                                <option value="boutique">Boutique Hotel</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Special Requests</label>
+                            <textarea class="form-textarea" placeholder="Tell us about any special requirements, dietary restrictions, or specific activities you'd like to include..."></textarea>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="border-t border-light pt-8 mt-8">
+                    <h3 class="mb-6">Contact Information</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="form-group">
+                            <label class="form-label">Full Name *</label>
+                            <input type="text" class="form-input" placeholder="Your full name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Email Address *</label>
+                            <input type="email" class="form-input" placeholder="your@email.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Phone Number</label>
+                            <input type="tel" class="form-input" placeholder="+1 (555) 123-4567">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Preferred Contact Method</label>
+                            <select class="form-select">
+                                <option value="email">Email</option>
+                                <option value="phone">Phone</option>
+                                <option value="both">Both</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Submit -->
+                <div class="text-center mt-8">
+                    <button type="submit" class="btn btn-primary btn-lg">
+                        ✈️ Plan My Trip
+                    </button>
+                    <p class="text-sm text-secondary mt-4">
+                        We'll get back to you within 24 hours with a personalized itinerary
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works -->
+<section class="py-20 bg-secondary">
+    <div class="container">
+        <div class="text-center mb-12">
+            <h2>How It Works</h2>
+            <p>Three simple steps to your perfect trip</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="text-center">
+                <div class="w-16 h-16 rounded-full bg-primary mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">1</div>
+                <h3>Tell Us Your Dreams</h3>
+                <p class="text-secondary">Share your destination, dates, and preferences using our simple form</p>
+            </div>
+            
+            <div class="text-center">
+                <div class="w-16 h-16 rounded-full bg-secondary mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">2</div>
+                <h3>We Create Magic</h3>
+                <p class="text-secondary">Our travel experts craft a personalized itinerary just for you</p>
+            </div>
+            
+            <div class="text-center">
+                <div class="w-16 h-16 rounded-full bg-accent mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">3</div>
+                <h3>Enjoy Your Journey</h3>
+                <p class="text-secondary">Pack your bags and embark on your perfectly planned adventure</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.max-w-4xl {
+    max-width: 64rem;
+}
+
+input[type="checkbox"] {
+    width: 1rem;
+    height: 1rem;
+    accent-color: var(--color-primary);
+}
+
+label {
+    cursor: pointer;
+}
+</style>

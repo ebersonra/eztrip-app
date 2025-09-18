@@ -1,0 +1,47 @@
+<!-- Page Header -->
+<section class="py-16 bg-secondary">
+    <div class="container">
+        <div class="text-center">
+            <div class="text-8xl mb-6">⚠️</div>
+            <h1>Something Went Wrong</h1>
+            <p>We're experiencing technical difficulties. Please try again later.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Content -->
+<section class="py-20">
+    <div class="container text-center">
+        <div class="max-w-2xl mx-auto">
+            <h2>Server Error</h2>
+            <p class="mb-8">Our team has been notified and is working to fix the issue. We apologize for the inconvenience.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <a href="/" class="btn btn-primary btn-lg">
+                    🏠 Go Home
+                </a>
+                <button onclick="window.location.reload()" class="btn btn-outline btn-lg">
+                    🔄 Try Again
+                </button>
+            </div>
+            
+            <% if (typeof error !== 'undefined' && error.stack) { %>
+                <div class="card p-6 text-left">
+                    <h3>Error Details (Development)</h3>
+                    <pre class="text-sm bg-tertiary p-4 rounded overflow-auto"><%= error.stack %></pre>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</section>
+
+<style>
+.max-w-2xl {
+    max-width: 42rem;
+}
+
+pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+</style>

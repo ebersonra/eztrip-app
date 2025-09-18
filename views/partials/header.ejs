@@ -1,0 +1,44 @@
+<header class="header">
+    <div class="container">
+        <div class="header-content">
+            <div class="logo">
+                <a href="/">EzTrip</a>
+            </div>
+            
+            <nav class="nav" role="navigation" aria-label="Main navigation">
+                <ul class="nav-menu">
+                    <li><a href="/" class="nav-link <%= currentPath === '/' ? 'active' : '' %>">Home</a></li>
+                    <li><a href="/trips" class="nav-link <%= currentPath.startsWith('/trips') ? 'active' : '' %>">Trips</a></li>
+                    <li><a href="/trips/plan" class="nav-link <%= currentPath === '/trips/plan' ? 'active' : '' %>">Plan</a></li>
+                    <li><a href="/about" class="nav-link <%= currentPath === '/about' ? 'active' : '' %>">About</a></li>
+                    <li><a href="/contact" class="nav-link <%= currentPath === '/contact' ? 'active' : '' %>">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    🌙
+                </button>
+                <a href="/trips/plan" class="btn btn-primary btn-sm">Plan Trip</a>
+                <button id="mobile-menu-toggle" class="mobile-menu-toggle btn btn-ghost btn-sm" aria-expanded="false">
+                    ☰
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+        <div class="container">
+            <nav class="mobile-nav">
+                <ul class="nav-menu flex-col">
+                    <li><a href="/" class="nav-link">Home</a></li>
+                    <li><a href="/trips" class="nav-link">Trips</a></li>
+                    <li><a href="/trips/plan" class="nav-link">Plan</a></li>
+                    <li><a href="/about" class="nav-link">About</a></li>
+                    <li><a href="/contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
