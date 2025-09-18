@@ -1,0 +1,120 @@
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1>Your Perfect Journey Awaits</h1>
+            <p>Discover amazing destinations, plan unforgettable trips, and create memories that last a lifetime with EzTrip's modern travel platform.</p>
+            
+            <!-- Search Bar -->
+            <form id="search-form" class="search-bar">
+                <input 
+                    type="text" 
+                    id="search-input" 
+                    class="search-input" 
+                    placeholder="Where do you want to go?"
+                    autocomplete="off"
+                >
+                <button type="submit" class="btn btn-secondary search-btn">
+                    🔍 Search
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Trips -->
+<section class="py-20">
+    <div class="container">
+        <div class="text-center mb-12">
+            <h2>Featured Destinations</h2>
+            <p>Handpicked trips curated by our travel experts</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <% featuredTrips.forEach(trip => { %>
+                <article class="trip-card">
+                    <img src="<%= trip.image %>" alt="<%= trip.destination %>" class="trip-card-image" loading="lazy">
+                    <div class="trip-card-content">
+                        <div class="trip-card-header">
+                            <div>
+                                <h3 class="trip-card-title"><%= trip.destination %></h3>
+                                <p class="trip-card-location">📍 <%= trip.country %></p>
+                            </div>
+                            <div class="trip-card-price">$<%= trip.budget %></div>
+                        </div>
+                        
+                        <p class="trip-card-description"><%= trip.description %></p>
+                        
+                        <div class="trip-card-meta">
+                            <div class="trip-rating">
+                                <span class="stars">⭐</span>
+                                <span><%= trip.rating %> (<%= trip.reviews %> reviews)</span>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="btn btn-ghost btn-sm" data-action="favorite">🤍</button>
+                                <button class="btn btn-ghost btn-sm" data-action="share">🔗</button>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <a href="/trips/<%= trip.id %>" class="btn btn-primary w-full">View Details</a>
+                        </div>
+                    </div>
+                </article>
+            <% }) %>
+        </div>
+        
+        <div class="text-center mt-12">
+            <a href="/trips" class="btn btn-outline btn-lg">View All Trips</a>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-20 bg-secondary">
+    <div class="container">
+        <div class="text-center mb-12">
+            <h2>Why Choose EzTrip?</h2>
+            <p>Modern travel planning made simple and enjoyable</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="card text-center">
+                <div class="text-4xl mb-4">🌍</div>
+                <h3 class="card-title">Global Destinations</h3>
+                <p>Discover amazing places around the world with our curated selection of destinations.</p>
+            </div>
+            
+            <div class="card text-center">
+                <div class="text-4xl mb-4">📱</div>
+                <h3 class="card-title">Modern Interface</h3>
+                <p>Enjoy a sleek, responsive design that works perfectly on all your devices.</p>
+            </div>
+            
+            <div class="card text-center">
+                <div class="text-4xl mb-4">💡</div>
+                <h3 class="card-title">Smart Planning</h3>
+                <p>Get personalized recommendations and smart suggestions for your perfect trip.</p>
+            </div>
+            
+            <div class="card text-center">
+                <div class="text-4xl mb-4">🌙</div>
+                <h3 class="card-title">Dark Mode</h3>
+                <p>Switch between light and dark themes for comfortable browsing anytime.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-20">
+    <div class="container text-center">
+        <h2>Ready to Start Your Journey?</h2>
+        <p class="mb-8">Join thousands of travelers who trust EzTrip for their adventures</p>
+        <div class="flex gap-4 justify-center">
+            <a href="/trips/plan" class="btn btn-primary btn-lg">Plan Your Trip</a>
+            <a href="/trips" class="btn btn-outline btn-lg">Browse Destinations</a>
+        </div>
+    </div>
+</section>
+

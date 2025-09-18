@@ -1,0 +1,196 @@
+<!-- Page Header -->
+<section class="py-16 bg-secondary">
+    <div class="container">
+        <div class="text-center">
+            <h1>Discover Amazing Trips</h1>
+            <p>Find your perfect adventure from our collection of curated destinations</p>
+        </div>
+    </div>
+</section>
+
+<!-- Filters -->
+<section class="py-8 border-b border-light">
+    <div class="container">
+        <form class="flex flex-wrap gap-4 items-center justify-between">
+            <div class="flex flex-wrap gap-4">
+                <div class="form-group mb-0">
+                    <label class="form-label sr-only">Destination</label>
+                    <input type="text" class="form-input" placeholder="Search destination..." name="destination">
+                </div>
+                
+                <div class="form-group mb-0">
+                    <label class="form-label sr-only">Budget</label>
+                    <select class="form-select" name="budget">
+                        <option value="">Any Budget</option>
+                        <option value="500">Under $500</option>
+                        <option value="1000">Under $1,000</option>
+                        <option value="2000">Under $2,000</option>
+                        <option value="5000">Under $5,000</option>
+                    </select>
+                </div>
+                
+                <div class="form-group mb-0">
+                    <label class="form-label sr-only">Duration</label>
+                    <select class="form-select" name="duration">
+                        <option value="">Any Duration</option>
+                        <option value="3">1-3 days</option>
+                        <option value="7">4-7 days</option>
+                        <option value="14">1-2 weeks</option>
+                        <option value="30">1+ month</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="flex gap-2">
+                <button type="submit" class="btn btn-primary">🔍 Search</button>
+                <button type="reset" class="btn btn-ghost">Clear</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<!-- Trip Grid -->
+<section class="py-12">
+    <div class="container">
+        <div class="flex justify-between items-center mb-8">
+            <h2>Available Trips (<%= trips.length %>)</h2>
+            <div class="flex gap-2">
+                <button class="btn btn-ghost btn-sm" id="grid-view">⊞ Grid</button>
+                <button class="btn btn-ghost btn-sm" id="list-view">☰ List</button>
+            </div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="trips-grid">
+            <% trips.forEach(trip => { %>
+                <article class="trip-card">
+                    <img src="<%= trip.image %>" alt="<%= trip.destination %>" class="trip-card-image" loading="lazy">
+                    <div class="trip-card-content">
+                        <div class="trip-card-header">
+                            <div>
+                                <h3 class="trip-card-title">
+                                    <a href="/trips/<%= trip.id %>"><%= trip.destination %></a>
+                                </h3>
+                                <p class="trip-card-location">📍 <%= trip.country %></p>
+                            </div>
+                            <div class="trip-card-price">$<%= trip.budget %></div>
+                        </div>
+                        
+                        <p class="trip-card-description"><%= trip.description %></p>
+                        
+                        <div class="trip-card-tags mb-4">
+                            <% trip.activities.slice(0, 3).forEach(activity => { %>
+                                <span class="tag">#<%= activity.replace(/\s+/g, '') %></span>
+                            <% }) %>
+                        </div>
+                        
+                        <div class="trip-card-meta">
+                            <div class="trip-rating">
+                                <span class="stars">⭐</span>
+                                <span><%= trip.rating %> (<%= trip.reviews %>)</span>
+                            </div>
+                            <div class="trip-duration">
+                                📅 <%= trip.duration %>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4 flex gap-2">
+                            <a href="/trips/<%= trip.id %>" class="btn btn-primary flex-1">View Details</a>
+                            <button class="btn btn-ghost btn-sm" data-action="favorite">🤍</button>
+                            <button class="btn btn-ghost btn-sm" data-action="share">🔗</button>
+                        </div>
+                    </div>
+                </article>
+            <% }) %>
+        </div>
+        
+        <% if (trips.length === 0) { %>
+            <div class="text-center py-16">
+                <div class="text-6xl mb-4">🔍</div>
+                <h3>No trips found</h3>
+                <p class="mb-6">Try adjusting your search criteria or explore our featured destinations.</p>
+                <a href="/trips" class="btn btn-primary">View All Trips</a>
+            </div>
+        <% } %>
+        
+        <!-- Load More Button (for pagination) -->
+        <% if (trips.length >= 9) { %>
+            <div class="text-center mt-12">
+                <button class="btn btn-outline btn-lg" id="load-more">Load More Trips</button>
+            </div>
+        <% } %>
+    </div>
+</section>
+
+<style>
+.tag {
+    display: inline-block;
+    background-color: var(--bg-tertiary);
+    color: var(--text-secondary);
+    font-size: var(--text-xs);
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-full);
+    margin-right: var(--space-1);
+    margin-bottom: var(--space-1);
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+#trips-grid.list-view {
+    grid-template-columns: 1fr;
+}
+
+#trips-grid.list-view .trip-card {
+    display: flex;
+    gap: var(--space-4);
+}
+
+#trips-grid.list-view .trip-card-image {
+    width: 200px;
+    height: 150px;
+    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    #trips-grid.list-view .trip-card {
+        flex-direction: column;
+    }
+    
+    #trips-grid.list-view .trip-card-image {
+        width: 100%;
+        height: 200px;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const gridView = document.getElementById('grid-view');
+    const listView = document.getElementById('list-view');
+    const tripsGrid = document.getElementById('trips-grid');
+    
+    if (gridView && listView) {
+        gridView.addEventListener('click', () => {
+            tripsGrid.classList.remove('list-view');
+            gridView.classList.add('active');
+            listView.classList.remove('active');
+        });
+        
+        listView.addEventListener('click', () => {
+            tripsGrid.classList.add('list-view');
+            listView.classList.add('active');
+            gridView.classList.remove('active');
+        });
+    }
+});
+</script>
+
